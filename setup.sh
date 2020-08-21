@@ -2,7 +2,7 @@
 # Arch setup script
 
 # Install basic software
-sudo pacman -S vim vi man-db man-pages code powertop git base-devel ghc
+sudo pacman -S vim vi man-db man-pages code powertop git base-devel ghc libreoffice
 
 
 # Install gnome-terminal-transparency
@@ -26,6 +26,11 @@ git clone https://github.com/OliverBenz/Arch_Setup.git
 cd Arch_Setup
 mv .vimrc ~/
 mv .bash_aliases ~/
+
+# TODO: Link bash_aliases in bash_rc??
+# if [ -f ~/.bash_aliases ]; then
+# . ~/.bash_aliases
+# fi
 
 # Icons and Themes
 mkdir ~/home/$USER/.icons
