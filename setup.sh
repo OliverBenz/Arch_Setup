@@ -24,24 +24,30 @@ cd onedrive/
 # ---------------------------------------------------------------
 git clone https://github.com/OliverBenz/Arch_Setup.git
 cd Arch_Setup
-mv .vimrc ~/.vimrc
-mv .bash_aliases ~/.bash_aliases
+mv .vimrc ~/
+mv .bash_aliases ~/
 
 # Icons and Themes
+mkdir ~/home/$USER/.icons
 mv Icons.tar.gz ~/.icons/
 tar -xvzf ~/.icons/Icons.tar.gz
 
+mkdir ~/home/$USER/.icons
 mv Themes.tar.gz ~/.themes
 tar -xvzf ~/.themes/Themes.tar.gz
 
 
-# TODO: Install snap
+# Install snap
+git clone https://aur.archlinux.org/snapd.git
+cd snapd
+makepkg -si
+systemctl enable --now snapd.socket
+sudo ln -s /var/lib/snapd/snap /snap
+cd ..
+
 # Snap Packages
 sudo snap install brave spotify discord
 
 
 # TODO:
-# vimrc
-# bash_aliases
-# snapd (AUR)
 # Keyboard shortcuts
