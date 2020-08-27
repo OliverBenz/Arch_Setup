@@ -24,8 +24,8 @@ cd onedrive/
 # ---------------------------------------------------------------
 git clone https://github.com/OliverBenz/Arch_Setup.git
 cd Arch_Setup
-mv .vimrc ~/
-mv .bash_aliases ~/
+mv .vimrc ${HOME}/
+mv .bash_aliases ${HOME}/
 
 # TODO: Link bash_aliases in bash_rc??
 # if [ -f ~/.bash_aliases ]; then
@@ -33,13 +33,13 @@ mv .bash_aliases ~/
 # fi
 
 # Icons and Themes
-mkdir ~/home/$USER/.icons
-mv Icons.tar.gz ~/.icons/
-tar -xvzf ~/.icons/Icons.tar.gz
+mkdir ${HOME}/.icons
+mv Icons.tar.gz ${HOME}/.icons/
+tar -xvzf ${HOME}/.icons/Icons.tar.gz
 
-mkdir ~/home/$USER/.icons
-mv Themes.tar.gz ~/.themes
-tar -xvzf ~/.themes/Themes.tar.gz
+mkdir ${HOME}/.icons
+mv Themes.tar.gz ${HOME}/.themes
+tar -xvzf ${HOME}/.themes/Themes.tar.gz
 
 
 # Install snap
