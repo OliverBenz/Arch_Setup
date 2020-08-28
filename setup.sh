@@ -2,7 +2,7 @@
 # Arch setup script
 
 # Install basic software
-sudo pacman -S vim vi man-db man-pages code powertop git base-devel ghc libreoffice
+sudo pacman -S vim vi man-db man-pages code powertop git base-devel ghc libreoffice discord
 
 
 # Install gnome-terminal-transparency
@@ -51,7 +51,7 @@ sudo ln -s /var/lib/snapd/snap /snap
 cd ..
 
 # Snap Packages
-sudo snap install brave spotify discord
+sudo snap install brave spotify
 
 
 # TODO:
