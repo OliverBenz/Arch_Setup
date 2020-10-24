@@ -2,7 +2,7 @@
 # Arch setup script
 
 # Install basic software
-sudo pacman -S vim vi man-db man-pages code powertop git base-devel ghc libreoffice discord texlive-most texlive-lang gthumb
+sudo pacman -S vim vi man-db man-pages code git base-devel ghc discord texlive-most texlive-lang gthumb
 # gthumb - Image Viewer
 
 
