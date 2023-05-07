@@ -2,8 +2,7 @@
 # Arch setup script
 
 # Install basic software
-sudo pacman -S vim vi man-db man-pages code git base-devel ghc discord texlive-most texlive-lang gthumb
-# gthumb - Image Viewer
+sudo pacman -S vim vi man-db man-pages code git base-devel ghc discord texlive-most texlive-lang gthumb kate mpv vlc okular
 
 
 # Install gnome-terminal-transparency
