@@ -29,6 +29,10 @@ set incsearch
 " Relative Line Numbers
 set relativenumber
 
+" Better searching
+set incsearch  " Enable incremental search
+set hlsearch   " Enable highlight search"
+
 " Disable Arrow Keys
 noremap  <Up> ""
 noremap! <Up> <Esc>
@@ -42,12 +46,33 @@ noremap! <Right> <Esc>
 
 " Load plugins using vim-plug
 call plug#begin()
-	Plug 'preservim/nerdtree'
+	" Plug 'rafi/awesome-vim-colorschemes'
+	Plug 'lifepillar/vim-solarized8'
+
+	Plug 'preservim/nerdtree'     " File tree
+	Plug 'sheerun/vim-polyglot'   " Syntax highlighting
+	Plug 'jiangmiao/auto-pairs'   " Pair-copmletion
+	Plug 'derekwyatt/vim-fswitch' " Switch between header/source file
 call plug#end()
 
 
 
 """ PLUGING SETUP
+"" Theme - Select a setting when using 
+set background=dark
+colorscheme solarized8
+
+
+"" Pair completion
+" Turn off with Ctrl+P
+let g:AutoPairsShortcutToggle = '<C-P>'
+
+
+"" File switching
+au! BufEnter *.cpp let b:fswitchdst = 'hpp,h'
+au! BufEnter *.h let b:fswitchdst = 'cpp,c'
+nmap <C-S> :vsplit <bar> :wincmd l <bar> :FSRight<CR>
+
 
 "" NERDTree
 " Start NERDTree. If a file is specified, move the cursor to its window.
