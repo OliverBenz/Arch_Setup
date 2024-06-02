@@ -4,6 +4,9 @@
 # Install basic software
 sudo pacman -S vim vi man-db man-pages code git base-devel ghc discord texlive-most texlive-lang gthumb kate mpv vlc okular kate
 
+# For i3 window manager
+sudo pacman -Sy dolphin breeze-icons
+
 
 # Install gnome-terminal-transparency
 git clone https://aur.archlinux.org/gnome-terminal-transparency.git
