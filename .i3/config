@@ -47,7 +47,7 @@ exec --no-startup-id volumeicon
 bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 #exec --no-startup-id pulseaudio
 #exec --no-startup-id pa-applet
-#bindsym $mod+Ctrl+m exec pavucontrol
+# bindsym $mod+Ctrl+m exec pavucontrol
 
 ################################################################################################
 
@@ -277,6 +277,7 @@ bindsym $mod+shift+x exec --no-startup-id blurlock
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore; sleep 1; picom -b
+exec --no-startup-id nitrogen --set-auto /home/oliver/Data/OneDrivePersonal/Pictures/Backgrounds/linux/wallpaper-mountain.jpg --head=0
 #exec --no-startup-id manjaro-hello
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
@@ -335,6 +336,8 @@ bar {
 	bindsym button5 nop
 #   font xft:URWGothic-Book 11
 	# strip_workspace_numbers yes
+
+    padding 2px
 
     colors {
         background #222D31
@@ -420,6 +423,9 @@ mode "$mode_gaps_outer" {
         bindsym Escape mode "default"
 }
 
+no_focus [window_role="pop-up"]
+focus_follows_mouse no
+
 ## Laptop configuration
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
@@ -463,4 +469,4 @@ assign [class="discord"] $ws6
 exec steam
 assign [class="steam"] $ws6
 
-exec_always xrandr --output HDMI-0 --off --output DP-0 --mode 3440x1440 --rate 100 --pos 0x0 --rotate normal --output DP-1 --off --output DP-2 --off --output DP-3 --off --output DP-4 --off --output DP-5 --off
+exec_always xrandr --output eDP-1 --primary --mode 2256x1504 --pos 0x0 --rotate normal --output DP-1 --off --output DP-2 --off --output DP-3 --off --output DP-4 --off
