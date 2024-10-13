@@ -304,28 +304,26 @@ exec_always --no-startup-id fix_xcursor
 # to:
 # background $term_background
 # Same logic applied to everything else.
-set_from_resource $term_background background
-set_from_resource $term_foreground foreground
-set_from_resource $term_color0     color0
-set_from_resource $term_color1     color1
-set_from_resource $term_color2     color2
-set_from_resource $term_color3     color3
-set_from_resource $term_color4     color4
-set_from_resource $term_color5     color5
-set_from_resource $term_color6     color6
-set_from_resource $term_color7     color7
-set_from_resource $term_color8     color8
-set_from_resource $term_color9     color9
-set_from_resource $term_color10    color10
-set_from_resource $term_color11    color11
-set_from_resource $term_color12    color12
-set_from_resource $term_color13    color13
-set_from_resource $term_color14    color14
-set_from_resource $term_color15    color15
+# set_from_resource $col_background    background
+# set_from_resource $col_background_in background-in
+# set_from_resource $col_background_ur background-ur
+# set_from_resource $col_text          text
+# set_from_resource $col_text_in       text-in
+# set_from_resource $col_indicator     indicator
+
+set $col_background      #523d6499
+set $col_background-in   #3636364D
+set $col_background-ur   #ff0000
+set $col_bar             #523d640D
+set $col_focus_ws        #523d6480
+set $col_text            #ffffff
+set $col_text-in         #969696
+set $col_indicator       #a8a3c1
 
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
 bar {
-	i3bar_command i3bar
+	i3bar_command i3bar --transparency
+    # tray_output none  # Hide icons from i3bar
 	status_command i3status
 	position top
 
@@ -341,16 +339,16 @@ bar {
     padding 2px
 
     colors {
-        background #222D31
+        background $col_background
         statusline #F9FAF9
-        separator  #454947
+        separator  #191919
 
-#                      border  backgr. text
-        focused_workspace  #F9FAF9 #16a085 #292F34
-        active_workspace   #595B5B #353836 #FDF6E3
-        inactive_workspace #595B5B #222D31 #EEE8D5
-        binding_mode       #16a085 #2C2C2C #F9FAF9
-        urgent_workspace   #16a085 #FDF6E3 #E5201D
+#                          border              background         text
+        focused_workspace  $col_focus_ws       $col_focus_ws      $col_text
+        active_workspace   $col_background     $col_background    $col_text
+        inactive_workspace $col_background_in  $col_background_in $col_text
+        binding_mode       $col_background_ur  $col_background_ur $col_text
+        urgent_workspace   $col_background_ur  $col_background_ur $col_text
     }
 }
 
@@ -358,14 +356,14 @@ bar {
 bindsym $mod+m bar mode toggle
 
 # Theme colors
-# class                   border  backgr. text    indic.   child_border
-  client.focused          #556064 #556064 #80FFF9 #FDF6E3
-  client.focused_inactive #2F3D44 #2F3D44 #1ABC9C #454948
-  client.unfocused        #2F3D44 #2F3D44 #1ABC9C #454948
-  client.urgent           #CB4B16 #FDF6E3 #1ABC9C #268BD2
-  client.placeholder      #000000 #0c0c0c #ffffff #000000 
+# class                   border           backgr. text       indic.       child_border
+client.focused          $col_background    $col_background    $col_text    $col_indicator
+client.focused_inactive $col_background_in $col_background_in $col_text_in $col_background_in 
+client.unfocused        $col_background_in $col_background_in $col_text_in $col_background_in 
+client.urgent           $col_background    $col_background    $col_text    $col_background_ur
+client.placeholder      #000000 #0c0c0c #ffffff #000000 
 
-  client.background       #2B2C2B
+client.background       #2B2C2B
 
 #############################
 ### settings for i3-gaps: ###
@@ -381,7 +379,7 @@ gaps outer -2
 # gaps outer all plus 5
 
 # Smart gaps (gaps used if only more than one container on the workspace)
-smart_gaps on
+smart_gaps off
 
 # Smart borders (draw borders around container only if it is not the only container on this workspace) 
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
