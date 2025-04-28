@@ -144,7 +144,7 @@ bindsym $mod+Ctrl+Left workspace prev
 #                 set $ws2 2:
 set $ws1 "1: Main"
 set $ws2 "2: Documents"
-set $ws3 3
+set $ws3 "3: Zotero"
 set $ws4 4
 set $ws5 5
 set $ws6 "6: Games"
@@ -286,7 +286,7 @@ exec --no-startup-id pamac-tray
 exec --no-startup-id clipit
 # exec --no-startup-id blueman-applet
 # exec_always --no-startup-id sbxkb
-# exec --no-startup-id start_conky_maia
+# exec --no-startup-id start_conky_maia  # Widget Desktop
 # exec --no-startup-id start_conky_green
 # exec --no-startup-id xautolock -time 10 -locker blurlock
 exec_always --no-startup-id ff-theme-util
@@ -434,10 +434,14 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #d
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
 # Media player controls
-bindsym XF86AudioPlay exec playerctl play
-bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
+
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20   # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+
 
 ## Applications
 # Note: You can get the application class name by using the 'xprop' command and clicking on the window
@@ -448,35 +452,41 @@ assign [class="Spotify"] $ws8
 exec code /home/oliver/Data/Documents/
 assign [class="code-oss"] $ws2
 
+assign [class="Zotero"] $ws3
+
+
 exec whatsdesk
 assign [class="whatsdesk"] $ws7
 
-exec thunderbird
+# exec thunderbird
 assign [class="thunderbird"] $ws7
 
-exec discord
+# exec discord
 assign [class="discord"] $ws6
 
-exec steam
+# exec steam
 assign [class="steam"] $ws6
 
 #
 ## Laptop Configuration
-# exec_always xrandr --output eDP-1 --primary --mode 2256x1504 --pos 0x0 --rotate normal --output DP-1 --off --output DP-2 --off --output DP-3 --off --output DP-4 --off
+exec_always xrandr --output eDP-1 --primary --mode 2256x1504 --rotate normal --output DP-4 --mode 2560x1440 --right-of eDP-1 
 # exec --no-startup-id nitrogen --set-auto /home/oliver/Data/OneDrivePersonal/Pictures/Backgrounds/linux/wallpaper-mountain.jpg --head=0
 
-# Sreen brightness controls
-# bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-# bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+workspace $ws1 output eDP-1
+workspace $ws2 output eDP-1
+workspace $ws3 output eDP-1
+workspace $ws4 output eDP-1
+workspace $ws5 output DP-4
+workspace $ws6 output DP-4
+workspace $ws7 output DP-4
+workspace $ws8 output DP-4
 
-# Touchpad controls
-# bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
+
 
 
 ## PC Configuration
-exec_always xrandr --output HDMI-0 --off --output DP-0 --mode 3440x1440 --rate 100 --pos 0x0 --rotate normal --output DP-1 --off --output DP-2 --off --output DP-3 --off --output DP-4 --off --output DP-5 --off
-exec --no-startup-id nitrogen --set-auto /home/oliver/Data/OneDrivePersonal/Pictures/Backgrounds/linux/wide/main.jpg --head=0
-
+# exec_always xrandr --output HDMI-0 --off --output DP-0 --mode 3440x1440 --rate 100 --pos 0x0 --rotate normal --output DP-1 --off --output DP-2 --off --output DP-3 --off --output DP-4 --off --output DP-5 --off
+# exec --no-startup-id nitrogen --set-auto /home/oliver/Data/OneDrivePersonal/Pictures/Backgrounds/linux/wide/main.jpg --head=0
 
 # Notes
 # - xrandr settings can be checked using 'arandr' program and saving the current layout.
