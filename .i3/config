@@ -321,36 +321,38 @@ set $col_text-in         #969696
 set $col_indicator       #a8a3c1
 
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
-bar {
-	i3bar_command i3bar --transparency
-    # tray_output none  # Hide icons from i3bar
-	status_command i3status
-	position top
+# bar {
+# 	i3bar_command i3bar --transparency
+#     # tray_output none  # Hide icons from i3bar
+# 	status_command i3status
+# 	position top
+# 
+# ## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
+# #	tray_output primary
+# #	tray_output eDP1
+# 
+# 	bindsym button4 nop
+# 	bindsym button5 nop
+# #   font xft:URWGothic-Book 11
+# 	# strip_workspace_numbers yes
+# 
+#     padding 2px
+# 
+#     colors {
+#         background $col_background
+#         statusline #F9FAF9
+#         separator  #191919
+# 
+# #                          border              background         text
+#         focused_workspace  $col_focus_ws       $col_focus_ws      $col_text
+#         active_workspace   $col_background     $col_background    $col_text
+#         inactive_workspace $col_background_in  $col_background_in $col_text
+#         binding_mode       $col_background_ur  $col_background_ur $col_text
+#         urgent_workspace   $col_background_ur  $col_background_ur $col_text
+#     }
+# }
 
-## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
-#	tray_output primary
-#	tray_output eDP1
-
-	bindsym button4 nop
-	bindsym button5 nop
-#   font xft:URWGothic-Book 11
-	# strip_workspace_numbers yes
-
-    padding 2px
-
-    colors {
-        background $col_background
-        statusline #F9FAF9
-        separator  #191919
-
-#                          border              background         text
-        focused_workspace  $col_focus_ws       $col_focus_ws      $col_text
-        active_workspace   $col_background     $col_background    $col_text
-        inactive_workspace $col_background_in  $col_background_in $col_text
-        binding_mode       $col_background_ur  $col_background_ur $col_text
-        urgent_workspace   $col_background_ur  $col_background_ur $col_text
-    }
-}
+exec_always --no-startup-id sh -c 'pkill -x polybar; while pgrep -x polybar >/dev/null; do sleep 0.1; done; polybar oliBar &'
 
 # hide/unhide i3status bar
 bindsym $mod+m bar mode toggle
@@ -454,7 +456,6 @@ assign [class="code-oss"] $ws2
 
 assign [class="Zotero"] $ws3
 
-
 exec whatsdesk
 assign [class="whatsdesk"] $ws7
 
@@ -467,9 +468,10 @@ assign [class="discord"] $ws6
 # exec steam
 assign [class="steam"] $ws6
 
+
 #
 ## Laptop Configuration
-exec_always xrandr --output eDP-1 --primary --mode 2256x1504 --rotate normal --output DP-4 --mode 2560x1440 --right-of eDP-1 
+exec_always xrandr --output eDP-1 --primary --mode 2256x1504 --rotate normal --output DP-4 --mode 2560x1440 --left-of eDP-1 
 # exec --no-startup-id nitrogen --set-auto /home/oliver/Data/OneDrivePersonal/Pictures/Backgrounds/linux/wallpaper-mountain.jpg --head=0
 
 workspace $ws1 output eDP-1
