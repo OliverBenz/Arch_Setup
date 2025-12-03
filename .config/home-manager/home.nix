@@ -38,8 +38,6 @@
     #Development
     pkgs.gcc13
     pkgs.cmake
-    pkgs.qt6.full
-    pkgs.qt6.qtbase
     pkgs.sqlite
     pkgs.gtest
 
@@ -74,6 +72,7 @@
     ".vim/autoload/plug.vim".source = dotfiles/plug.vim;
 
     ".config/picom.conf".source = dotfiles/picom;
+    ".config/nixpkgs/config.nix".source = dotfiles/nixConfig.nix;
 
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
@@ -106,6 +105,25 @@
     enable = true;
     userName = "Oliver benz";
     userEmail = "oliver.benz@outlook.com";
+  };
+
+  programs.ssh = {
+    enable = true;
+    matchBlocks = {
+      github = {
+        host = "github.com";
+        identityFile = "/home/oliver/.ssh/github";
+      };
+    };
+  };
+  services.ssh-agent.enable = true;
+
+  nix = {
+    package = pkgs.nix;
+    settings.experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
   };
 
   # Let Home Manager install and manage itself.

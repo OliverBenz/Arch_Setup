@@ -451,7 +451,7 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightne
 exec spotify
 assign [class="Spotify"] $ws8
 
-exec code /home/oliver/Data/Documents/
+exec code /home/oliver/Documents/LaTex/
 assign [class="code-oss"] $ws2
 
 assign [class="Zotero"] $ws3
@@ -487,7 +487,7 @@ workspace $ws8 output DP-4
 
 
 ## PC Configuration
-exec_always xrandr --output HDMI-0 --off --output DP-0 --mode 2560x1440 --rate 60 --pos 0x0 --rotate normal 
+exec_always xrandr --output HDMI-0 --off --output DP-0 --mode 3440x1440 --rate 100 --pos 0x0 --rotate normal 
 exec --no-startup-id nitrogen --set-auto /home/oliver/Data/OneDrivePersonal/Pictures/Backgrounds/linux/wide/main.jpg --head=0
 
 # Notes
