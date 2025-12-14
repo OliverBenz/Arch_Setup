@@ -15,6 +15,7 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
+  fonts.fontconfig.enable    = true;
   nixpkgs.config.allowUnfree = true;
   home.packages = [
     # Essentials
@@ -36,16 +37,15 @@
     pkgs.spotify
 
     #Development
+	pkgs.neovim
     pkgs.gcc13
+	pkgs.gnumake
+	pkgs.tree-sitter
     pkgs.cmake
     pkgs.sqlite
     pkgs.gtest
 
-    # # It is sometimes useful to fine-tune packages, for example, by applying
-    # # overrides. You can do that directly here, just don't forget the
-    # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
-    # # fonts?
-    # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
+	pkgs.nerd-fonts.jetbrains-mono
 
     # # You can also create simple shell scripts directly inside your
     # # configuration. For example, this adds a command 'my-hello' to your
@@ -100,7 +100,6 @@
   home.sessionVariables = {
     # EDITOR = "emacs";
   };
-
   programs.git = {
     enable = true;
     userName = "Oliver benz";
