@@ -30,7 +30,9 @@
     pkgs.libreoffice
     pkgs.thunderbird
     # pkgs.onedrive
+	pkgs.texlab
     pkgs.zotero
+	pkgs.zathura
 
     # Recreational
     pkgs.discord
@@ -39,6 +41,7 @@
     #Development
 	pkgs.neovim
     pkgs.gcc13
+	pkgs.clang-tools
 	pkgs.gnumake
 	pkgs.tree-sitter
     pkgs.cmake
@@ -67,6 +70,8 @@
     ".config/onedriveUni/config".source = dotfiles/onedriveUni;
     ".config/onedrivePersonal/config".source = dotfiles/onedrivePersonal;
     ".config/onedrive-launcher".source = dotfiles/onedriveLauncher;
+
+    ".config/nvim/init.lua".source = dotfiles/nvim/init.lua;
 
     ".vimrc".source = dotfiles/vimrc;
     ".vim/autoload/plug.vim".source = dotfiles/plug.vim;
